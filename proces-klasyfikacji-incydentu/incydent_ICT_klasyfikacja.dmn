@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_incydent_ICT" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.52.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.10.0">
+  <decision id="Decision_incydent_ICT" name="Klasyfikacja incydentu">
+    <variable id="Variable_1" name="Klasyfikacja incydentu" typeRef="Any" />
+    <informationRequirement id="InformationRequirement_0pn5w9o">
+      <requiredInput href="#InputData_19u9hkj" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_05gxz8a">
+      <input id="Input_1" label="Funkcja krytyczna lub istotna">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text>supportsCriticalFunction</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Poziom incydentu" name="systemClassificationResult" typeRef="string">
+        <outputValues id="UnaryTests_0se72ql">
+          <text>"poważny","standardowy"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_177igg3">
+        <inputEntry id="UnaryTests_0gskw5n">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1opvvbi">
+          <text>"poważny"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ow2bj7">
+        <inputEntry id="UnaryTests_04p7uc4">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_02x5wjh">
+          <text>"standardowy"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_19u9hkj" name="supportsCriticalFunction">
+    <variable id="InformationItem_18os49z" name="supportsCriticalFunction" typeRef="boolean" />
+  </inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="Decision_0m40o35_di" dmnElementRef="Decision_incydent_ICT">
+        <dc:Bounds height="80" width="180" x="380" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1ooohlu" dmnElementRef="InputData_19u9hkj">
+        <dc:Bounds height="45" width="125" x="157" y="97" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0ddtbnf" dmnElementRef="InformationRequirement_0pn5w9o">
+        <di:waypoint x="282" y="120" />
+        <di:waypoint x="360" y="120" />
+        <di:waypoint x="380" y="120" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

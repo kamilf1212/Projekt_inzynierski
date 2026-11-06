@@ -1,0 +1,106 @@
+{
+  "components": [
+    {
+      "text": "## Zatwierdzenie klasyfikacji incydentu ICT",
+      "type": "text",
+      "id": "Text_intro",
+      "layout": {
+        "row": "Row_1",
+        "columns": null
+      }
+    },
+    {
+      "text": "### Ocena systemu\n**Poziom incydentu: {{systemClassificationResult}}**",
+      "type": "text",
+      "id": "Text_ocena",
+      "layout": {
+        "row": "Row_2",
+        "columns": null
+      }
+    },
+    {
+      "text": "### Dane incydentu\n**Dotknięta usługa:** {{affectedService}}\n\n**Źródło wykrycia:** {{detectionSource}}\n\n**Opis zdarzenia:** {{incidentDescription}}",
+      "type": "text",
+      "id": "Text_dane",
+      "layout": {
+        "row": "Row_3",
+        "columns": null
+      }
+    },
+    {
+      "text": "### Decyzja pracownika banku",
+      "type": "text",
+      "id": "Text_s3",
+      "layout": {
+        "row": "Row_4",
+        "columns": null
+      }
+    },
+    {
+      "label": "Osoba zatwierdzająca",
+      "type": "textfield",
+      "key": "approver",
+      "id": "Field_approver",
+      "validate": {
+        "required": true
+      },
+      "layout": {
+        "row": "Row_5",
+        "columns": null
+      }
+    },
+    {
+      "label": "Decyzja o klasyfikacji",
+      "values": [
+        {
+          "label": "Poważny incydent ICT",
+          "value": "poważny"
+        },
+        {
+          "label": "Incydent standardowy",
+          "value": "standardowy"
+        }
+      ],
+      "type": "select",
+      "key": "decision",
+      "id": "Field_decision",
+      "validate": {
+        "required": true
+      },
+      "layout": {
+        "row": "Row_5",
+        "columns": null
+      }
+    },
+    {
+      "label": "Uzasadnienie",
+      "type": "textarea",
+      "key": "justification",
+      "id": "Field_justification",
+      "description": "Wymagane, gdy decyzja różni się od oceny systemu",
+      "layout": {
+        "row": "Row_6",
+        "columns": null
+      }
+    },
+    {
+      "label": "Zatwierdź klasyfikację",
+      "action": "submit",
+      "type": "button",
+      "id": "Button_submit",
+      "layout": {
+        "row": "Row_7",
+        "columns": null
+      }
+    }
+  ],
+  "type": "default",
+  "id": "Form_incydent_zatwierdzenie",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.10.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.52.0"
+  },
+  "schemaVersion": 19
+}

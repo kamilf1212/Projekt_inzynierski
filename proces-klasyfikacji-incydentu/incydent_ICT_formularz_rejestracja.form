@@ -1,0 +1,403 @@
+{
+  "components": [
+    {
+      "text": "## Rejestracja incydentu ICT (DORA)\nDemonstrator na danych symulowanych. Wprowadź dane incydentu. System oceni jego poziom, a decyzję zatwierdzi pracownik banku.",
+      "type": "text",
+      "id": "Text_intro",
+      "layout": {
+        "row": "Row_1",
+        "columns": null
+      }
+    },
+    {
+      "text": "### 1. Rejestracja incydentu",
+      "type": "text",
+      "id": "Text_s1",
+      "layout": {
+        "row": "Row_2",
+        "columns": null
+      }
+    },
+    {
+      "subtype": "datetime",
+      "type": "datetime",
+      "key": "detectedAt",
+      "label": "Wykryto (data i godzina)",
+      "id": "Field_detectedAt",
+      "use24h": true,
+      "timeSerializingFormat": "utc_offset",
+      "timeInterval": 15,
+      "dateLabel": "Data",
+      "timeLabel": "Godzina",
+      "validate": {
+        "required": true
+      },
+      "layout": {
+        "row": "Row_3",
+        "columns": null
+      }
+    },
+    {
+      "label": "Źródło wykrycia",
+      "values": [
+        {
+          "label": "Monitoring (SIEM)",
+          "value": "Monitoring (SIEM)"
+        },
+        {
+          "label": "Alert dostawcy chmury",
+          "value": "Alert dostawcy chmury"
+        },
+        {
+          "label": "Zgłoszenie pracownika",
+          "value": "Zgłoszenie pracownika"
+        },
+        {
+          "label": "Zgłoszenie klienta",
+          "value": "Zgłoszenie klienta"
+        },
+        {
+          "label": "Kontrahent",
+          "value": "Kontrahent"
+        }
+      ],
+      "type": "select",
+      "key": "detectionSource",
+      "id": "Field_source",
+      "defaultValue": "Monitoring (SIEM)",
+      "layout": {
+        "row": "Row_3",
+        "columns": null
+      }
+    },
+    {
+      "label": "Dotknięta usługa",
+      "values": [
+        {
+          "label": "Płatności kartowe",
+          "value": "Płatności kartowe"
+        },
+        {
+          "label": "Przelewy natychmiastowe",
+          "value": "Przelewy natychmiastowe"
+        },
+        {
+          "label": "Bankowość internetowa",
+          "value": "Bankowość internetowa"
+        },
+        {
+          "label": "Raportowanie wewnętrzne",
+          "value": "Raportowanie wewnętrzne"
+        }
+      ],
+      "type": "select",
+      "key": "affectedService",
+      "id": "Field_service",
+      "defaultValue": "Płatności kartowe",
+      "layout": {
+        "row": "Row_4",
+        "columns": null
+      }
+    },
+    {
+      "label": "Opis zdarzenia",
+      "type": "textarea",
+      "key": "incidentDescription",
+      "id": "Field_desc",
+      "layout": {
+        "row": "Row_5",
+        "columns": null
+      }
+    },
+    {
+      "label": "Usługa wspiera funkcję krytyczną lub istotną",
+      "type": "checkbox",
+      "key": "supportsCriticalFunction",
+      "id": "Field_critical",
+      "defaultValue": false,
+      "description": "Art. 3 pkt 22: zakłócenie istotnie wpływa na wyniki finansowe, bezpieczeństwo, ciągłość usług lub zgodność z zezwoleniem.",
+      "layout": {
+        "row": "Row_6",
+        "columns": null
+      }
+    },
+    {
+      "text": "### 2. Kryteria klasyfikacji (art. 18 ust. 1)\n**Ilościowe (lit. a)**",
+      "type": "text",
+      "id": "Text_s2",
+      "layout": {
+        "row": "Row_7",
+        "columns": null
+      }
+    },
+    {
+      "label": "Liczba dotkniętych klientów",
+      "type": "number",
+      "key": "affectedClientsCount",
+      "id": "Field_clients",
+      "defaultValue": 0,
+      "validate": {
+        "min": 0
+      },
+      "layout": {
+        "row": "Row_8",
+        "columns": null
+      }
+    },
+    {
+      "label": "Liczba dotkniętych kontrahentów",
+      "type": "number",
+      "key": "affectedCounterpartiesCount",
+      "id": "Field_cps",
+      "defaultValue": 0,
+      "validate": {
+        "min": 0
+      },
+      "layout": {
+        "row": "Row_8",
+        "columns": null
+      }
+    },
+    {
+      "label": "Liczba transakcji",
+      "type": "number",
+      "key": "affectedTransactionsCount",
+      "id": "Field_txCount",
+      "defaultValue": 0,
+      "validate": {
+        "min": 0
+      },
+      "layout": {
+        "row": "Row_9",
+        "columns": null
+      }
+    },
+    {
+      "label": "Kwota transakcji (EUR)",
+      "type": "number",
+      "key": "affectedTransactionsValueEur",
+      "id": "Field_txValue",
+      "defaultValue": 0,
+      "validate": {
+        "min": 0
+      },
+      "layout": {
+        "row": "Row_9",
+        "columns": null
+      }
+    },
+    {
+      "label": "Dotknięci klienci o dużym znaczeniu",
+      "type": "checkbox",
+      "key": "affectsKeyClients",
+      "id": "Field_keyClients",
+      "defaultValue": false,
+      "layout": {
+        "row": "Row_10",
+        "columns": null
+      }
+    },
+    {
+      "label": "Dotknięci kontrahenci o dużym znaczeniu",
+      "type": "checkbox",
+      "key": "affectsKeyCounterparties",
+      "id": "Field_keyCps",
+      "defaultValue": false,
+      "layout": {
+        "row": "Row_10",
+        "columns": null
+      }
+    },
+    {
+      "label": "Wystąpiły skutki reputacyjne",
+      "type": "checkbox",
+      "key": "hasReputationalImpact",
+      "id": "Field_rep",
+      "defaultValue": false,
+      "layout": {
+        "row": "Row_10",
+        "columns": null
+      }
+    },
+    {
+      "text": "**Czasowe (lit. b) i geograficzne (lit. c)**",
+      "type": "text",
+      "id": "Text_s2b",
+      "layout": {
+        "row": "Row_11",
+        "columns": null
+      }
+    },
+    {
+      "label": "Czas trwania incydentu (godz.)",
+      "type": "number",
+      "key": "incidentDurationHours",
+      "id": "Field_dur",
+      "defaultValue": 0,
+      "validate": {
+        "min": 0
+      },
+      "increment": 0.5,
+      "layout": {
+        "row": "Row_12",
+        "columns": null
+      }
+    },
+    {
+      "label": "Przerwa w świadczeniu usług (godz.)",
+      "type": "number",
+      "key": "serviceDowntimeHours",
+      "id": "Field_down",
+      "defaultValue": 0,
+      "validate": {
+        "min": 0
+      },
+      "increment": 0.5,
+      "layout": {
+        "row": "Row_12",
+        "columns": null
+      }
+    },
+    {
+      "label": "Liczba państw członkowskich UE, których dotyczy",
+      "type": "number",
+      "key": "affectedEuStatesCount",
+      "id": "Field_states",
+      "defaultValue": 1,
+      "validate": {
+        "min": 1
+      },
+      "layout": {
+        "row": "Row_12",
+        "columns": null
+      }
+    },
+    {
+      "text": "**Utrata danych (lit. d)**",
+      "type": "text",
+      "id": "Text_s2c",
+      "layout": {
+        "row": "Row_13",
+        "columns": null
+      }
+    },
+    {
+      "label": "Dostępność",
+      "type": "checkbox",
+      "key": "availabilityLost",
+      "id": "Field_dAvail",
+      "defaultValue": false,
+      "description": "dane trudno odzyskać",
+      "layout": {
+        "row": "Row_14",
+        "columns": null
+      }
+    },
+    {
+      "label": "Autentyczność",
+      "type": "checkbox",
+      "key": "authenticityLost",
+      "id": "Field_dAuth",
+      "defaultValue": false,
+      "description": "dane mogą być nieprawdziwe",
+      "layout": {
+        "row": "Row_14",
+        "columns": null
+      }
+    },
+    {
+      "label": "Integralność",
+      "type": "checkbox",
+      "key": "integrityLost",
+      "id": "Field_dInt",
+      "defaultValue": false,
+      "description": "zbiór ważny lub trudny do odtworzenia",
+      "layout": {
+        "row": "Row_15",
+        "columns": null
+      }
+    },
+    {
+      "label": "Poufność",
+      "type": "checkbox",
+      "key": "confidentialityLost",
+      "id": "Field_dConf",
+      "defaultValue": false,
+      "description": "ujawniono dane tajne",
+      "layout": {
+        "row": "Row_15",
+        "columns": null
+      }
+    },
+    {
+      "text": "**Skutki gospodarcze (lit. f)**",
+      "type": "text",
+      "id": "Text_s2d",
+      "layout": {
+        "row": "Row_16",
+        "columns": null
+      }
+    },
+    {
+      "label": "Koszty bezpośrednie (EUR)",
+      "type": "number",
+      "key": "directCostsEur",
+      "id": "Field_cDir",
+      "defaultValue": 0,
+      "validate": {
+        "min": 0
+      },
+      "layout": {
+        "row": "Row_17",
+        "columns": null
+      }
+    },
+    {
+      "label": "Koszty pośrednie (EUR)",
+      "type": "number",
+      "key": "indirectCostsEur",
+      "id": "Field_cInd",
+      "defaultValue": 0,
+      "validate": {
+        "min": 0
+      },
+      "layout": {
+        "row": "Row_17",
+        "columns": null
+      }
+    },
+    {
+      "label": "Straty: rzeczywiste i utracone korzyści (EUR)",
+      "type": "number",
+      "key": "lossesEur",
+      "id": "Field_cLoss",
+      "defaultValue": 0,
+      "validate": {
+        "min": 0
+      },
+      "layout": {
+        "row": "Row_17",
+        "columns": null
+      }
+    },
+    {
+      "label": "Zarejestruj incydent",
+      "action": "submit",
+      "type": "button",
+      "id": "Button_submit",
+      "layout": {
+        "row": "Row_18",
+        "columns": null
+      }
+    }
+  ],
+  "type": "default",
+  "id": "Form_incydent_rejestracja",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.10.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.51.1"
+  },
+  "schemaVersion": 19
+}
