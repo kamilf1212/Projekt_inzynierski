@@ -1,0 +1,24 @@
+Diagram BPMN – zarządzanie wymaganiami prawnymi
+1. Analityk prawny / Compliance Officer - analizuje przepisy DORA i akty wykonawcze, identyfikuje obowiązki prawne banku, określa, które przepisy dotyczą obsługi incydentów ICT.
+2. Analityk biznesowy / Analityk wymagań - Przekłada obowiązki prawne na wymagania systemowe. Tworzy wpisy w katalogu wymagań. Łączy przepisy z funkcjami systemu i kryteriami akceptacji.
+3. Architekt / Programista - Projektuje rozwiązanie techniczne. Implementuje funkcje rejestracji, klasyfikacji i raportowania incydentów. Uwzględnia wymagania dotyczące terminów, dowodów i historii działań.
+4. Tester / QA - Sprawdza, czy system realizuje wymagania. Wykonuje testy na danych symulowanych. Dokumentuje wyniki testów i niezgodności.
+5. Osoba zatwierdzająca - Zatwierdza wymagania i rozwiązanie. Podejmuje decyzję o akceptacji lub konieczności poprawek.
+
+
+Diagram BPMN – obsługa incydentu ICT
+1. System monitorowania ICT - Wykrywa awarie, alerty i podejrzane zdarzenia.
+2. Pracownik banku / Zespół Service Desk - Rejestruje zgłoszony incydent.
+3. Zespół IT / Zespół reagowania na incydenty - Analizuje incydent, ogranicza skutki i usuwa przyczynę.
+4. Osoba odpowiedzialna za klasyfikację - Ocena incydentu według kryteriów i ustalenie jego kategorii oraz powagi.
+5. Compliance Officer / Specjalista ds. regulacyjnych - Wspiera ocenę obowiązków raportowych i sprawdza zgodność zgłoszenia z wymaganiami.
+6. Osoba upoważniona do zatwierdzania raportów - Zatwierdza raport, jeśli wymaga tego procedura banku.
+7. Właściwy organ nadzorczy - Odbiera raport dotyczący poważnego incydentu, zgodnie z właściwymi przepisami.
+8. Właściciel procesu / Kierownik IT - Nadzoruje zamknięcie sprawy i zatwierdza działania naprawcze.
+9. Dostawca usług chmurowych - Przekazuje informacje o awarii lub zdarzeniu po swojej stronie i wspiera reakcję, jeśli jest to potrzebne.
+
+
+część klasyfikacji zrobić
+
+
+Usługi kluczowe: obsługa płatności klientów, system bankowości internetowej, system obsługi przelewów, system obsługi incydentów ICT
