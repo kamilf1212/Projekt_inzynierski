@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_pobranie_bazy" name="Pobranie Danych Usługi" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.52.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.10.0">
+  <decision id="Decision_pobranie_bazy_klientow" name="Symulacja pobrania bazy klientów i transakcji">
+    <decisionTable id="DecisionTable_pobranie" hitPolicy="FIRST">
+      <input id="Input_service" label="Dotknięta usługa">
+        <inputExpression id="InputExpr_service" typeRef="string">
+          <text>affectedService</text>
+        </inputExpression>
+      </input>
+      <output id="Output_totalClients" label="Ogólna liczba klientów usługi" name="totalClientsCount" typeRef="number" />
+      <output id="Output_totalCounterparties" label="Ogólna liczba kontrahentów usługi" name="totalCounterpartiesCount" typeRef="number" />
+      <output id="Output_avgTxCount" label="Średnia dzienna liczba transakcji" name="avgDailyTransactionsCount" typeRef="number" />
+      <output id="Output_avgTxValue" label="Średnia dzienna kwota transakcji (EUR)" name="avgDailyTransactionsValueEur" typeRef="number" />
+      
+      <rule id="Rule_platnosci_kartowe">
+        <inputEntry id="In_platnosci">
+          <text>"Płatności kartowe"</text>
+        </inputEntry>
+        <outputEntry id="Out_clients_platnosci">
+          <text>1200000</text>
+        </outputEntry>
+        <outputEntry id="Out_cps_platnosci">
+          <text>5000</text>
+        </outputEntry>
+        <outputEntry id="Out_txCount_platnosci">
+          <text>500000</text>
+        </outputEntry>
+        <outputEntry id="Out_txValue_platnosci">
+          <text>25000000</text>
+        </outputEntry>
+      </rule>
+
+      <rule id="Rule_przelewy_natychmiastowe">
+        <inputEntry id="In_przelewy">
+          <text>"Przelewy natychmiastowe"</text>
+        </inputEntry>
+        <outputEntry id="Out_clients_przelewy">
+          <text>800000</text>
+        </outputEntry>
+        <outputEntry id="Out_cps_przelewy">
+          <text>1200</text>
+        </outputEntry>
+        <outputEntry id="Out_txCount_przelewy">
+          <text>150000</text>
+        </outputEntry>
+        <outputEntry id="Out_txValue_przelewy">
+          <text>45000000</text>
+        </outputEntry>
+      </rule>
+
+      <rule id="Rule_bankowosc_internetowa">
+        <inputEntry id="In_bankowosc">
+          <text>"Bankowość internetowa"</text>
+        </inputEntry>
+        <outputEntry id="Out_clients_bankowosc">
+          <text>2000000</text>
+        </outputEntry>
+        <outputEntry id="Out_cps_bankowosc">
+          <text>10000</text>
+        </outputEntry>
+        <outputEntry id="Out_txCount_bankowosc">
+          <text>800000</text>
+        </outputEntry>
+        <outputEntry id="Out_txValue_bankowosc">
+          <text>100000000</text>
+        </outputEntry>
+      </rule>
+
+      <rule id="Rule_raportowanie_wewnetrzne">
+        <inputEntry id="In_raportowanie">
+          <text>"Raportowanie wewnętrzne"</text>
+        </inputEntry>
+        <outputEntry id="Out_clients_raportowanie">
+          <text>500</text>
+        </outputEntry>
+        <outputEntry id="Out_cps_raportowanie">
+          <text>50</text>
+        </outputEntry>
+        <outputEntry id="Out_txCount_raportowanie">
+          <text>1000</text>
+        </outputEntry>
+        <outputEntry id="Out_txValue_raportowanie">
+          <text>500000</text>
+        </outputEntry>
+      </rule>
+
+      <rule id="Rule_default">
+        <inputEntry id="In_default">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="Out_clients_default">
+          <text>100000</text>
+        </outputEntry>
+        <outputEntry id="Out_cps_default">
+          <text>500</text>
+        </outputEntry>
+        <outputEntry id="Out_txCount_default">
+          <text>10000</text>
+        </outputEntry>
+        <outputEntry id="Out_txValue_default">
+          <text>1000000</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_Decision_pobranie_bazy_klientow" dmnElementRef="Decision_pobranie_bazy_klientow">
+        <dc:Bounds height="80" width="180" x="160" y="80" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

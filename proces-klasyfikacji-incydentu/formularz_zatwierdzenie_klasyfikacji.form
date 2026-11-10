@@ -10,7 +10,7 @@
       }
     },
     {
-      "text": "### Ocena systemu\n**Poziom incydentu: {{systemClassificationResult}}**",
+      "text": "### Incydent \n\n### Ocena systemu\n**Poziom incydentu: {{systemClassificationResult}}**",
       "type": "text",
       "id": "Text_ocena",
       "layout": {

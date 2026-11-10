@@ -1,7 +1,7 @@
 {
   "components": [
     {
-      "text": "## Rejestracja incydentu ICT (DORA)\nDemonstrator na danych symulowanych. Wprowadź dane incydentu. System oceni jego poziom, a decyzję zatwierdzi pracownik banku.",
+      "text": "## Rejestracja incydentu ICT (DORA)\nWprowadź dane incydentu. System oceni jego poziom, a decyzję zatwierdzi pracownik banku.",
       "type": "text",
       "id": "Text_intro",
       "layout": {
@@ -10,7 +10,7 @@
       }
     },
     {
-      "text": "### 1. Rejestracja incydentu",
+      "text": "### 1. Rejestracja incydentu {{incidentId}}",
       "type": "text",
       "id": "Text_s1",
       "layout": {
@@ -68,6 +68,9 @@
       "layout": {
         "row": "Row_3",
         "columns": null
+      },
+      "validate": {
+        "required": true
       }
     },
     {
@@ -97,6 +100,9 @@
       "layout": {
         "row": "Row_4",
         "columns": null
+      },
+      "validate": {
+        "required": true
       }
     },
     {
@@ -110,6 +116,15 @@
       }
     },
     {
+      "text": "### Krytyczność usługi",
+      "type": "text",
+      "id": "Text_crit_header",
+      "layout": {
+        "row": "Row_6",
+        "columns": null
+      }
+    },
+    {
       "label": "Usługa wspiera funkcję krytyczną lub istotną",
       "type": "checkbox",
       "key": "supportsCriticalFunction",
@@ -117,16 +132,38 @@
       "defaultValue": false,
       "description": "Art. 3 pkt 22: zakłócenie istotnie wpływa na wyniki finansowe, bezpieczeństwo, ciągłość usług lub zgodność z zezwoleniem.",
       "layout": {
-        "row": "Row_6",
+        "row": "Row_7",
         "columns": null
       }
     },
     {
-      "text": "### 2. Kryteria klasyfikacji (art. 18 ust. 1)\n**Ilościowe (lit. a)**",
+      "label": "Usługa wymaga upoważnienia/rejestracji lub podlega nadzorowi organów",
+      "type": "checkbox",
+      "key": "isRegulatedService",
+      "id": "Field_regulated",
+      "defaultValue": false,
+      "layout": {
+        "row": "Row_7",
+        "columns": null
+      }
+    },
+    {
+      "label": "Skuteczny, złośliwy i nieuprawniony dostęp do sieci/systemów",
+      "type": "checkbox",
+      "key": "isMaliciousAccess",
+      "id": "Field_maliciousAccess",
+      "defaultValue": false,
+      "layout": {
+        "row": "Row_7",
+        "columns": null
+      }
+    },
+    {
+      "text": "### 2. Kryteria klasyfikacji (art. 18 ust. 1)\n**Ilościowe (lit. a)**\nWartości odnoszą się do klientów kontrahentów oraz tranzakcji związanych z usługą, której dotyczy incydent",
       "type": "text",
       "id": "Text_s2",
       "layout": {
-        "row": "Row_7",
+        "row": "Row_8",
         "columns": null
       }
     },
@@ -140,7 +177,7 @@
         "min": 0
       },
       "layout": {
-        "row": "Row_8",
+        "row": "Row_9",
         "columns": null
       }
     },
@@ -154,7 +191,7 @@
         "min": 0
       },
       "layout": {
-        "row": "Row_8",
+        "row": "Row_9",
         "columns": null
       }
     },
@@ -168,7 +205,7 @@
         "min": 0
       },
       "layout": {
-        "row": "Row_9",
+        "row": "Row_10",
         "columns": null
       }
     },
@@ -182,7 +219,7 @@
         "min": 0
       },
       "layout": {
-        "row": "Row_9",
+        "row": "Row_10",
         "columns": null
       }
     },
@@ -193,7 +230,7 @@
       "id": "Field_keyClients",
       "defaultValue": false,
       "layout": {
-        "row": "Row_10",
+        "row": "Row_11",
         "columns": null
       }
     },
@@ -204,27 +241,68 @@
       "id": "Field_keyCps",
       "defaultValue": false,
       "layout": {
-        "row": "Row_10",
+        "row": "Row_11",
         "columns": null
       }
     },
     {
-      "label": "Wystąpiły skutki reputacyjne",
-      "type": "checkbox",
-      "key": "hasReputationalImpact",
-      "id": "Field_rep",
-      "defaultValue": false,
+      "text": "**Skutki reputacyjne**",
+      "type": "text",
+      "id": "Text_rep_header",
       "layout": {
-        "row": "Row_10",
+        "row": "Row_12",
         "columns": null
       }
+    },
+    {
+      "label": "Incydent został opisany w mediach",
+      "type": "checkbox",
+      "key": "describedInMedia",
+      "id": "Field_media",
+      "defaultValue": false,
+      "layout": {
+        "row": "Row_13",
+        "columns": null
+      }
+    },
+    {
+      "label": "Incydent doprowadził do powtarzających się skarg",
+      "type": "checkbox",
+      "key": "repeatedComplaints",
+      "id": "Field_complaints",
+      "defaultValue": false,
+      "layout": {
+        "row": "Row_13",
+        "columns": null
+      }
+    },
+    {
+      "label": "Brak możliwości spełnienia wymogów regulacyjnych",
+      "type": "checkbox",
+      "key": "regulatoryImpact",
+      "id": "Field_regLoss",
+      "defaultValue": false,
+      "layout": {
+        "row": "Row_14",
+        "columns": null
+      }
+    },
+    {
+      "label": "Ryzyko utraty klientów z istotnym wpływem na działalność banku",
+      "type": "checkbox",
+      "layout": {
+        "row": "Row_14",
+        "columns": null
+      },
+      "id": "Field_0yujmxf",
+      "key": "customerLoss"
     },
     {
       "text": "**Czasowe (lit. b) i geograficzne (lit. c)**",
       "type": "text",
       "id": "Text_s2b",
       "layout": {
-        "row": "Row_11",
+        "row": "Row_15",
         "columns": null
       }
     },
@@ -239,7 +317,7 @@
       },
       "increment": 0.5,
       "layout": {
-        "row": "Row_12",
+        "row": "Row_16",
         "columns": null
       }
     },
@@ -254,7 +332,7 @@
       },
       "increment": 0.5,
       "layout": {
-        "row": "Row_12",
+        "row": "Row_16",
         "columns": null
       }
     },
@@ -268,64 +346,71 @@
         "min": 1
       },
       "layout": {
-        "row": "Row_12",
+        "row": "Row_16",
         "columns": null
       }
     },
     {
-      "text": "**Utrata danych (lit. d)**",
+      "text": "**Utrata danych (lit. d)**\nSpełnienie tego progu klasyfikuje incydent bezpośrednio jako poważny.",
       "type": "text",
       "id": "Text_s2c",
       "layout": {
-        "row": "Row_13",
+        "row": "Row_17",
         "columns": null
       }
     },
     {
-      "label": "Dostępność",
+      "label": "Dostępność (trwale lub tymczasowo niedostępne / nienadające się do wykorzystania)",
       "type": "checkbox",
       "key": "availabilityLost",
       "id": "Field_dAvail",
       "defaultValue": false,
-      "description": "dane trudno odzyskać",
       "layout": {
-        "row": "Row_14",
+        "row": "Row_18",
         "columns": null
       }
     },
     {
-      "label": "Autentyczność",
+      "label": "Autentyczność (spadek wiarygodności źródła danych)",
       "type": "checkbox",
       "key": "authenticityLost",
       "id": "Field_dAuth",
       "defaultValue": false,
-      "description": "dane mogą być nieprawdziwe",
       "layout": {
-        "row": "Row_14",
+        "row": "Row_18",
         "columns": null
       }
     },
     {
-      "label": "Integralność",
+      "label": "Integralność (nieupoważniona modyfikacja danych)",
       "type": "checkbox",
       "key": "integrityLost",
       "id": "Field_dInt",
       "defaultValue": false,
-      "description": "zbiór ważny lub trudny do odtworzenia",
       "layout": {
-        "row": "Row_15",
+        "row": "Row_19",
         "columns": null
       }
     },
     {
-      "label": "Poufność",
+      "label": "Poufność (ujawniono / uzyskano nieuprawniony dostęp)",
       "type": "checkbox",
       "key": "confidentialityLost",
       "id": "Field_dConf",
       "defaultValue": false,
-      "description": "ujawniono dane tajne",
       "layout": {
-        "row": "Row_15",
+        "row": "Row_19",
+        "columns": null
+      }
+    },
+    {
+      "label": "Nastąpił udany, złośliwy i nieuprawniony dostęp do sieci i/lub systemów informatycznych, który może spowodować utratę danych",
+      "type": "checkbox",
+      "key": "dataLossUnauthorized",
+      "id": "Field_dataLossAdverseImpact",
+      "defaultValue": false,
+      "layout": {
+        "row": "Row_20",
         "columns": null
       }
     },
@@ -334,7 +419,7 @@
       "type": "text",
       "id": "Text_s2d",
       "layout": {
-        "row": "Row_16",
+        "row": "Row_21",
         "columns": null
       }
     },
@@ -348,7 +433,7 @@
         "min": 0
       },
       "layout": {
-        "row": "Row_17",
+        "row": "Row_22",
         "columns": null
       }
     },
@@ -362,7 +447,7 @@
         "min": 0
       },
       "layout": {
-        "row": "Row_17",
+        "row": "Row_22",
         "columns": null
       }
     },
@@ -376,7 +461,7 @@
         "min": 0
       },
       "layout": {
-        "row": "Row_17",
+        "row": "Row_22",
         "columns": null
       }
     },
@@ -386,7 +471,7 @@
       "type": "button",
       "id": "Button_submit",
       "layout": {
-        "row": "Row_18",
+        "row": "Row_23",
         "columns": null
       }
     }
@@ -397,7 +482,7 @@
   "executionPlatformVersion": "8.10.0",
   "exporter": {
     "name": "Camunda Modeler",
-    "version": "5.51.1"
+    "version": "5.52.0"
   },
   "schemaVersion": 19
 }
