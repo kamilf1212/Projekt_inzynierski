@@ -16,9 +16,3 @@ Diagram BPMN – obsługa incydentu ICT
 7. Właściwy organ nadzorczy - Odbiera raport dotyczący poważnego incydentu, zgodnie z właściwymi przepisami.
 8. Właściciel procesu / Kierownik IT - Nadzoruje zamknięcie sprawy i zatwierdza działania naprawcze.
 9. Dostawca usług chmurowych - Przekazuje informacje o awarii lub zdarzeniu po swojej stronie i wspiera reakcję, jeśli jest to potrzebne.
-
-
-część klasyfikacji zrobić
-
-
-Usługi kluczowe: obsługa płatności klientów, system bankowości internetowej, system obsługi przelewów, system obsługi incydentów ICT
