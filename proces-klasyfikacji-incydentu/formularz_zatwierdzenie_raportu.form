@@ -1,0 +1,41 @@
+{
+  "components": [
+    {
+      "text": "# Wymagane zatwierdzenie raportu",
+      "type": "text",
+      "layout": {
+        "row": "Row_161yo2t",
+        "columns": null
+      },
+      "id": "Field_09yteef"
+    },
+    {
+      "label": "Document preview",
+      "type": "documentPreview",
+      "layout": {
+        "row": "Row_1hj8bzk",
+        "columns": null
+      },
+      "id": "Field_0zq3wqy"
+    },
+    {
+      "label": "Zatwierdź",
+      "action": "submit",
+      "type": "button",
+      "layout": {
+        "row": "Row_0snk8dw",
+        "columns": null
+      },
+      "id": "Field_06wsl3m"
+    }
+  ],
+  "type": "default",
+  "id": "Form_zatwierdzenie_raportu",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.10.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.52.0"
+  },
+  "schemaVersion": 19
+}

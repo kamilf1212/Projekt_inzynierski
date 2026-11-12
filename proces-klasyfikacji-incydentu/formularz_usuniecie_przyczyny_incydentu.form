@@ -1,0 +1,53 @@
+{
+  "components": [
+    {
+      "text": "# Czy przyczyna incydentu została usunięta?",
+      "type": "text",
+      "layout": {
+        "row": "Row_0jtknk1",
+        "columns": null
+      },
+      "id": "Field_0jgw4sh"
+    },
+    {
+      "label": "Select",
+      "values": [
+        {
+          "label": "tak",
+          "value": "true"
+        },
+        {
+          "label": "nie",
+          "value": "false"
+        }
+      ],
+      "type": "select",
+      "layout": {
+        "row": "Row_0aaq3mq",
+        "columns": null
+      },
+      "id": "Field_1f3cebn",
+      "key": "isIncidentCauseRemoved",
+      "defaultValue": "true"
+    },
+    {
+      "label": "Zatwierdź",
+      "action": "submit",
+      "type": "button",
+      "layout": {
+        "row": "Row_0ndwhcj",
+        "columns": null
+      },
+      "id": "Field_1sdgiqi"
+    }
+  ],
+  "type": "default",
+  "id": "Form_incydent_usuniecie",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.10.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.52.0"
+  },
+  "schemaVersion": 19
+}
