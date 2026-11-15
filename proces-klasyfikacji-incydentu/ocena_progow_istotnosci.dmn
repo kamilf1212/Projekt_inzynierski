@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="threshold" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.51.1" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.10.0">
+  <decision id="ocena_progow_istotnosci" name="Ocena progów istotności">
+    <variable id="Variable_1" name="Ocena progów istotności" typeRef="Any" />
+    <literalExpression id="LiteralExpression_1fg4mr3">
+      <text>{
+    thresholdClients:
+    	(totalClientsCount &gt; 0 and affectedClientsCount / totalClientsCount &gt; 0.10)
+        or affectedClientsCount &gt; 100000
+        or (totalCounterpartiesCount &gt; 0 and affectedCounterpartiesCount / totalCounterpartiesCount &gt; 0.30)
+        or (avgDailyTransactionsCount &gt; 0 and affectedTransactionsCount / avgDailyTransactionsCount &gt; 0.10)
+        or (avgDailyTransactionsValueEur &gt; 0 and affectedTransactionsValueEur / avgDailyTransactionsValueEur &gt; 0.10)
+        or affectsKeyClients 
+		or affectsKeyCounterparties,
+
+    thresholdReputational:
+        describedInMedia
+		or repeatedComplaints
+		or regulatoryImpact 
+		or customerLoss,
+
+    thresholdDuration:
+        incidentDurationHours &gt; 24
+        or 
+		((incidentAffectsImportantFunction or incidentAffectsCriticalFunction) and serviceDowntimeHours &gt; 2),
+
+    thresholdGeographic: affectedEuStatesCount &gt;= 2,
+
+    thresholdDataLoss5a:
+        availabilityLost
+		or authenticityLost 
+		or integrityLost 
+		or confidentialityLost,
+
+    thresholdDataLoss5b: dataLossUnauthorized,
+
+    thresholdEconomic:
+        (directCostsEur + indirectCostsEur + lossesEur) &gt; 100000,
+
+    numberOfOtherThresholdsMet:
+        (if 
+			(totalClientsCount &gt; 0 and affectedClientsCount / totalClientsCount &gt; 0.10)
+             or affectedClientsCount &gt; 100000
+             or (totalCounterpartiesCount &gt; 0 and affectedCounterpartiesCount / totalCounterpartiesCount &gt; 0.30)
+             or (avgDailyTransactionsCount &gt; 0 and affectedTransactionsCount / avgDailyTransactionsCount &gt; 0.10)
+             or (avgDailyTransactionsValueEur &gt; 0 and affectedTransactionsValueEur / avgDailyTransactionsValueEur &gt; 0.10)
+             or affectsKeyClients 
+             or affectsKeyCounterparties 
+             then 1 else 0
+		)
+        + 
+		(if 
+			describedInMedia 
+			or repeatedComplaints 
+			or regulatoryImpact 
+			or customerLoss 
+			then 1 else 0
+		)
+        + 
+		(if 
+			incidentDurationHours &gt; 24 
+			or 
+			(supportsCriticalFunction and serviceDowntimeHours &gt; 2) 
+			then 1 else 0
+		)
+        + 
+		(if 
+			affectedEuStatesCount &gt;= 2 
+			then 1 else 0
+		)
+        + 
+		(if 
+			availabilityLost 
+			or authenticityLost 
+			or integrityLost 
+			or confidentialityLost 
+			then 1 else 0
+		)
+        + 
+		(if 
+			(directCostsEur + indirectCostsEur + lossesEur) &gt; 100000 
+			then 1 else 0
+		),
+
+    naruszoneProgi:
+    flatten([
+        if
+            (totalClientsCount &gt; 0 and affectedClientsCount / totalClientsCount &gt; 0.10)
+            or affectedClientsCount &gt; 100000
+            or (totalCounterpartiesCount &gt; 0 and affectedCounterpartiesCount / totalCounterpartiesCount &gt; 0.30)
+            or (avgDailyTransactionsCount &gt; 0 and affectedTransactionsCount / avgDailyTransactionsCount &gt; 0.10)
+            or (avgDailyTransactionsValueEur &gt; 0 and affectedTransactionsValueEur / avgDailyTransactionsValueEur &gt; 0.10)
+            or affectsKeyClients
+            or affectsKeyCounterparties
+        	then ["Próg 1 - klienci, kontrahenci i transakcje"]
+        else [],
+
+        if
+            describedInMedia
+            or repeatedComplaints
+            or regulatoryImpact
+            or customerLoss
+        	then ["Próg 2 - skutki reputacyjne"]
+        else [],
+
+        if
+            incidentDurationHours &gt; 24
+            or ((incidentAffectsImportantFunction or incidentAffectsCriticalFunction) and serviceDowntimeHours &gt; 2)
+        	then ["Próg 3 - czas trwania i przerwa w usługach"]
+        else [],
+
+        if
+            affectedEuStatesCount &gt;= 2
+        	then ["Próg 4 - zasięg geograficzny"]
+        else [],
+
+        if
+            availabilityLost
+            or authenticityLost
+            or integrityLost
+            or confidentialityLost
+        	then ["Próg 5a - wpływ na dane"]
+        else [],
+
+        if
+            dataLossUnauthorized
+        	then ["Próg 5b - złośliwy nieuprawniony dostęp"]
+        else [],
+
+        if
+            (directCostsEur + indirectCostsEur + lossesEur) &gt; 100000
+        	then ["Próg 6 - skutki gospodarcze"]
+        else []
+    ])
+}</text>
+    </literalExpression>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_052dh33" dmnElementRef="ocena_progow_istotnosci">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

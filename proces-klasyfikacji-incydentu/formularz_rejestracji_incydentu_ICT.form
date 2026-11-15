@@ -271,7 +271,7 @@
       "id": "Field_media",
       "defaultValue": false,
       "layout": {
-        "row": "Row_13",
+        "row": "Row_1j7rn01",
         "columns": null
       }
     },
@@ -282,7 +282,7 @@
       "id": "Field_complaints",
       "defaultValue": false,
       "layout": {
-        "row": "Row_13",
+        "row": "Row_1j7rn01",
         "columns": null
       }
     },
@@ -293,7 +293,7 @@
       "id": "Field_regLoss",
       "defaultValue": false,
       "layout": {
-        "row": "Row_14",
+        "row": "Row_1j7rn01",
         "columns": null
       }
     },
@@ -301,7 +301,7 @@
       "label": "Ryzyko utraty klientów z istotnym wpływem na działalność banku",
       "type": "checkbox",
       "layout": {
-        "row": "Row_14",
+        "row": "Row_1j7rn01",
         "columns": 8
       },
       "id": "Field_0yujmxf",
