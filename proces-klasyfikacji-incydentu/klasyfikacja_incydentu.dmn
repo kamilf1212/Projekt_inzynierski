@@ -5,7 +5,7 @@
     <decisionTable id="DecisionTable_1lllhta" hitPolicy="FIRST">
       <input id="Input_1" label="Usługa krytyczna">
         <inputExpression id="InputExpression_1" typeRef="boolean">
-          <text>supportsCriticalFunction or isRegulatedService or isMaliciousAccess</text>
+          <text>incidentAffectsCriticalFunction or isRegulatedService or isMaliciousAccess</text>
         </inputExpression>
       </input>
       <input id="InputClause_12zwjn4" label="Nieuprawniony dostęp mogący spowodować utratę danych">
@@ -15,7 +15,69 @@
       </input>
       <input id="InputClause_1u5c6f5" label="Liczba naruszeń pozostałych progów">
         <inputExpression id="LiteralExpression_1g6av9m" typeRef="number">
-          <text>(if ((if totalClientsCount &gt; 0 then affectedClientsCount / totalClientsCount &gt; 0.10 else false) or (affectedClientsCount &gt; 100000) or (if totalCounterpartiesCount &gt; 0 then affectedCounterpartiesCount / totalCounterpartiesCount &gt; 0.30 else false) or (if avgDailyTransactionsCount &gt; 0 then affectedTransactionsCount / avgDailyTransactionsCount &gt; 0.10 else false) or (if avgDailyTransactionsValueEur &gt; 0 then affectedTransactionsValueEur / avgDailyTransactionsValueEur &gt; 0.10 else false) or affectsKeyClients or affectsKeyCounterparties) then 1 else 0) + (if (describedInMedia or repeatedComplaints or regulatoryImpact or customerLoss) then 1 else 0) + (if ((incidentDurationHours &gt; 24) or (supportsCriticalFunction and serviceDowntimeHours &gt; 2)) then 1 else 0) + (if (affectedEuStatesCount &gt;= 2) then 1 else 0) + (if (availabilityLost or authenticityLost or integrityLost or confidentialityLost) then 1 else 0) + (if (((directCostsEur + indirectCostsEur + lossesEur) &gt; 100000) and ((if totalClientsCount &gt; 0 then affectedClientsCount / totalClientsCount &gt; 0.10 else false) or (affectedClientsCount &gt; 100000) or (if totalCounterpartiesCount &gt; 0 then affectedCounterpartiesCount / totalCounterpartiesCount &gt; 0.30 else false) or (if avgDailyTransactionsCount &gt; 0 then affectedTransactionsCount / avgDailyTransactionsCount &gt; 0.10 else false))) then 1 else 0)</text>
+          <text>(
+	if(
+			(if totalClientsCount &gt; 0 then affectedClientsCount / totalClientsCount &gt; 0.10 else false)
+		or 	
+			(affectedClientsCount &gt; 100000)
+		or 
+			(if totalCounterpartiesCount &gt; 0 then affectedCounterpartiesCount / totalCounterpartiesCount &gt; 0.30 else false)
+		or 
+			(if avgDailyTransactionsCount &gt; 0 then affectedTransactionsCount / avgDailyTransactionsCount &gt; 0.10 else false)
+		or 
+			(if avgDailyTransactionsValueEur &gt; 0 then affectedTransactionsValueEur / avgDailyTransactionsValueEur &gt; 0.10 else false)
+		or 
+			affectsKeyClients 
+		or 
+			affectsKeyCounterparties
+	) then 1 else 0
+)
++ 
+(
+	if (
+			describedInMedia 
+		or
+			repeatedComplaints
+		or 
+			regulatoryImpact 
+		or
+			customerLoss
+	) then 1 else 0
+) 
++ 
+(
+	if (
+			(incidentDurationHours &gt; 24) 
+		or 
+			((incidentAffectsImportantFunction or incidentAffectsCriticalFunction) and serviceDowntimeHours &gt; 2)
+	) then 1 else 0
+)
++ 
+(
+	if (affectedEuStatesCount &gt;= 2) then 1 else 0
+) 
++ 
+(
+	if (availabilityLost or authenticityLost or integrityLost or confidentialityLost) then 1 else 0
+) 
++
+(
+	if (
+			(
+				((directCostsEur + indirectCostsEur + lossesEur) &gt; 100000) or (probableCosts &gt; 100000)
+			) 
+			and 
+			(
+					(if totalClientsCount &gt; 0 then affectedClientsCount / totalClientsCount &gt; 0.10 else false)
+	 			or 
+					(affectedClientsCount &gt; 100000) 
+				or 
+					(if totalCounterpartiesCount &gt; 0 then affectedCounterpartiesCount / totalCounterpartiesCount &gt; 0.30 else false) 
+				or 
+					(if avgDailyTransactionsCount &gt; 0 then affectedTransactionsCount / avgDailyTransactionsCount &gt; 0.10 else false)
+			)
+	) then 1 else 0
+)</text>
         </inputExpression>
       </input>
       <output id="Output_1" label="Wynik klasyfikacji systemowej" name="systemClassificationResult" typeRef="string" />

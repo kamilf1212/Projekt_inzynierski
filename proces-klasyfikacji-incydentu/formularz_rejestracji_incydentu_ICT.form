@@ -125,9 +125,9 @@
       }
     },
     {
-      "label": "Usługa wspiera funkcję krytyczną lub istotną",
+      "label": "Usługa wspiera funkcję krytyczną",
       "type": "checkbox",
-      "key": "supportsCriticalFunction",
+      "key": "incidentAffectsCriticalFunction",
       "id": "Field_critical",
       "defaultValue": false,
       "description": "Art. 3 pkt 22: zakłócenie istotnie wpływa na wyniki finansowe, bezpieczeństwo, ciągłość usług lub zgodność z zezwoleniem.",
@@ -137,13 +137,23 @@
       }
     },
     {
+      "label": "Usługa wspiera funkcję istotną",
+      "type": "checkbox",
+      "layout": {
+        "row": "Row_13j7mma",
+        "columns": null
+      },
+      "id": "Field_1f9zr9k",
+      "key": "incidentAffectsImportantFunction"
+    },
+    {
       "label": "Usługa wymaga upoważnienia/rejestracji lub podlega nadzorowi organów",
       "type": "checkbox",
       "key": "isRegulatedService",
       "id": "Field_regulated",
       "defaultValue": false,
       "layout": {
-        "row": "Row_7",
+        "row": "Row_0zyv0jh",
         "columns": null
       }
     },
@@ -154,7 +164,7 @@
       "id": "Field_maliciousAccess",
       "defaultValue": false,
       "layout": {
-        "row": "Row_7",
+        "row": "Row_1qgab0t",
         "columns": null
       }
     },
@@ -292,7 +302,7 @@
       "type": "checkbox",
       "layout": {
         "row": "Row_14",
-        "columns": null
+        "columns": 8
       },
       "id": "Field_0yujmxf",
       "key": "customerLoss"
@@ -377,18 +387,7 @@
       "id": "Field_dAuth",
       "defaultValue": false,
       "layout": {
-        "row": "Row_18",
-        "columns": null
-      }
-    },
-    {
-      "label": "Integralność (nieupoważniona modyfikacja danych)",
-      "type": "checkbox",
-      "key": "integrityLost",
-      "id": "Field_dInt",
-      "defaultValue": false,
-      "layout": {
-        "row": "Row_19",
+        "row": "Row_1c6r8w4",
         "columns": null
       }
     },
@@ -397,6 +396,17 @@
       "type": "checkbox",
       "key": "confidentialityLost",
       "id": "Field_dConf",
+      "defaultValue": false,
+      "layout": {
+        "row": "Row_0j1kgut",
+        "columns": null
+      }
+    },
+    {
+      "label": "Integralność (nieupoważniona modyfikacja danych)",
+      "type": "checkbox",
+      "key": "integrityLost",
+      "id": "Field_dInt",
       "defaultValue": false,
       "layout": {
         "row": "Row_19",
@@ -462,8 +472,19 @@
       },
       "layout": {
         "row": "Row_22",
-        "columns": null
+        "columns": 4
       }
+    },
+    {
+      "label": "Prawdopodobne koszty i straty (EUR)",
+      "type": "number",
+      "layout": {
+        "row": "Row_22",
+        "columns": null
+      },
+      "id": "Field_0p2kzgb",
+      "key": "probableCosts",
+      "defaultValue": 0
     },
     {
       "label": "Zarejestruj incydent",
@@ -482,7 +503,7 @@
   "executionPlatformVersion": "8.10.0",
   "exporter": {
     "name": "Camunda Modeler",
-    "version": "5.52.0"
+    "version": "5.51.1"
   },
   "schemaVersion": 19
 }
