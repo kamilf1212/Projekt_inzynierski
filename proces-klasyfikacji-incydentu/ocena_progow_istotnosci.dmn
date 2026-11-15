@@ -35,7 +35,8 @@
     thresholdDataLoss5b: dataLossUnauthorized,
 
     thresholdEconomic:
-        (directCostsEur + indirectCostsEur + lossesEur) &gt; 100000,
+        (directCostsEur + indirectCostsEur + lossesEur) &gt; 100000
+        or probableCosts &gt; 100000,
 
     numberOfOtherThresholdsMet:
         (if 
@@ -78,7 +79,8 @@
 		)
         + 
 		(if 
-			(directCostsEur + indirectCostsEur + lossesEur) &gt; 100000 
+			(directCostsEur + indirectCostsEur + lossesEur) &gt; 100000
+            or probableCosts &gt; 100000
 			then 1 else 0
 		),
 
@@ -129,6 +131,7 @@
 
         if
             (directCostsEur + indirectCostsEur + lossesEur) &gt; 100000
+            or probableCosts &gt; 100000
         	then ["Próg 6 - skutki gospodarcze"]
         else []
     ])

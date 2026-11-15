@@ -17,65 +17,51 @@
         <inputExpression id="LiteralExpression_1g6av9m" typeRef="number">
           <text>(
 	if(
-			(if totalClientsCount &gt; 0 then affectedClientsCount / totalClientsCount &gt; 0.10 else false)
-		or 	
-			(affectedClientsCount &gt; 100000)
-		or 
-			(if totalCounterpartiesCount &gt; 0 then affectedCounterpartiesCount / totalCounterpartiesCount &gt; 0.30 else false)
-		or 
-			(if avgDailyTransactionsCount &gt; 0 then affectedTransactionsCount / avgDailyTransactionsCount &gt; 0.10 else false)
-		or 
-			(if avgDailyTransactionsValueEur &gt; 0 then affectedTransactionsValueEur / avgDailyTransactionsValueEur &gt; 0.10 else false)
-		or 
-			affectsKeyClients 
-		or 
-			affectsKeyCounterparties
+		(if totalClientsCount &gt; 0 then affectedClientsCount / totalClientsCount &gt; 0.10 else false)
+		or (affectedClientsCount &gt; 100000)
+		or (if totalCounterpartiesCount &gt; 0 then affectedCounterpartiesCount / totalCounterpartiesCount &gt; 0.30 else false)
+		or (if avgDailyTransactionsCount &gt; 0 then affectedTransactionsCount / avgDailyTransactionsCount &gt; 0.10 else false)
+		or (if avgDailyTransactionsValueEur &gt; 0 then affectedTransactionsValueEur / avgDailyTransactionsValueEur &gt; 0.10 else false)
+		or affectsKeyClients 
+		or affectsKeyCounterparties
 	) then 1 else 0
 )
 + 
 (
-	if (
-			describedInMedia 
-		or
-			repeatedComplaints
-		or 
-			regulatoryImpact 
-		or
-			customerLoss
+	if(
+        describedInMedia 
+		or repeatedComplaints
+		or regulatoryImpact 
+		or customerLoss
 	) then 1 else 0
 ) 
 + 
 (
-	if (
-			(incidentDurationHours &gt; 24) 
-		or 
-			((incidentAffectsImportantFunction or incidentAffectsCriticalFunction) and serviceDowntimeHours &gt; 2)
+	if(
+	    incidentDurationHours &gt; 24
+		or (
+            (incidentAffectsImportantFunction or incidentAffectsCriticalFunction) and serviceDowntimeHours &gt; 2
+        )
 	) then 1 else 0
 )
 + 
 (
-	if (affectedEuStatesCount &gt;= 2) then 1 else 0
+	if(affectedEuStatesCount &gt;= 2) then 1 else 0
 ) 
 + 
 (
-	if (availabilityLost or authenticityLost or integrityLost or confidentialityLost) then 1 else 0
+	if(
+        availabilityLost 
+        or authenticityLost 
+        or integrityLost 
+        or confidentialityLost
+    ) then 1 else 0
 ) 
 +
 (
 	if (
-			(
-				((directCostsEur + indirectCostsEur + lossesEur) &gt; 100000) or (probableCosts &gt; 100000)
-			) 
-			and 
-			(
-					(if totalClientsCount &gt; 0 then affectedClientsCount / totalClientsCount &gt; 0.10 else false)
-	 			or 
-					(affectedClientsCount &gt; 100000) 
-				or 
-					(if totalCounterpartiesCount &gt; 0 then affectedCounterpartiesCount / totalCounterpartiesCount &gt; 0.30 else false) 
-				or 
-					(if avgDailyTransactionsCount &gt; 0 then affectedTransactionsCount / avgDailyTransactionsCount &gt; 0.10 else false)
-			)
+		(directCostsEur + indirectCostsEur + lossesEur) &gt; 100000
+        or probableCosts &gt; 100000
 	) then 1 else 0
 )</text>
         </inputExpression>
