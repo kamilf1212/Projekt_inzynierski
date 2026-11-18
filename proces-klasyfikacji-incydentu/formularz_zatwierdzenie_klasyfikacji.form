@@ -53,11 +53,11 @@
       "label": "Decyzja o klasyfikacji",
       "values": [
         {
-          "label": "Poważny incydent ICT",
+          "label": "Incydent jest poważny",
           "value": "poważny"
         },
         {
-          "label": "Incydent standardowy",
+          "label": "Incydent nie jest poważny",
           "value": "standardowy"
         }
       ],
@@ -69,17 +69,6 @@
       },
       "layout": {
         "row": "Row_5",
-        "columns": null
-      }
-    },
-    {
-      "label": "Uzasadnienie",
-      "type": "textarea",
-      "key": "justification",
-      "id": "Field_justification",
-      "description": "Wymagane, gdy decyzja różni się od oceny systemu",
-      "layout": {
-        "row": "Row_6",
         "columns": null
       }
     },

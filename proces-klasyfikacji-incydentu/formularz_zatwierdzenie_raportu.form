@@ -10,20 +10,41 @@
       "id": "Field_09yteef"
     },
     {
-      "label": "Document preview",
-      "type": "documentPreview",
+      "label": "Imię i nazwisko osoby zatwierdzającej",
+      "type": "textfield",
       "layout": {
-        "row": "Row_1hj8bzk",
+        "row": "Row_0nv2qpa",
         "columns": null
       },
-      "id": "Field_0zq3wqy"
+      "id": "Field_0zzuqz6",
+      "key": "textfield_ep2br8"
     },
     {
-      "label": "Zatwierdź",
+      "label": "Decyzja o zatwierdzeniu raportu",
+      "values": [
+        {
+          "label": "Dokument zatwierdzony",
+          "value": "approved"
+        },
+        {
+          "label": "Dokument odrzucony",
+          "value": "declined"
+        }
+      ],
+      "type": "select",
+      "layout": {
+        "row": "Row_0snk8dw",
+        "columns": null
+      },
+      "id": "Field_0bbh0dm",
+      "key": "raportDecision"
+    },
+    {
+      "label": "Prześlij",
       "action": "submit",
       "type": "button",
       "layout": {
-        "row": "Row_0snk8dw",
+        "row": "Row_097pskh",
         "columns": null
       },
       "id": "Field_06wsl3m"

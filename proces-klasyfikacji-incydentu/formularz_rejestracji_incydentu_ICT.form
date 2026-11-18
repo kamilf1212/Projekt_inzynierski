@@ -26,7 +26,7 @@
       "id": "Field_detectedAt",
       "use24h": true,
       "timeSerializingFormat": "utc_offset",
-      "timeInterval": 15,
+      "timeInterval": 1,
       "dateLabel": "Data",
       "timeLabel": "Godzina",
       "validate": {
@@ -64,7 +64,6 @@
       "type": "select",
       "key": "detectionSource",
       "id": "Field_source",
-      "defaultValue": "Monitoring (SIEM)",
       "layout": {
         "row": "Row_3",
         "columns": null
@@ -96,7 +95,6 @@
       "type": "select",
       "key": "affectedService",
       "id": "Field_service",
-      "defaultValue": "Płatności kartowe",
       "layout": {
         "row": "Row_4",
         "columns": null
@@ -182,7 +180,6 @@
       "type": "number",
       "key": "affectedClientsCount",
       "id": "Field_clients",
-      "defaultValue": 0,
       "validate": {
         "min": 0
       },
@@ -196,7 +193,6 @@
       "type": "number",
       "key": "affectedCounterpartiesCount",
       "id": "Field_cps",
-      "defaultValue": 0,
       "validate": {
         "min": 0
       },
@@ -210,7 +206,6 @@
       "type": "number",
       "key": "affectedTransactionsCount",
       "id": "Field_txCount",
-      "defaultValue": 0,
       "validate": {
         "min": 0
       },
@@ -224,7 +219,6 @@
       "type": "number",
       "key": "affectedTransactionsValueEur",
       "id": "Field_txValue",
-      "defaultValue": 0,
       "validate": {
         "min": 0
       },
@@ -321,7 +315,6 @@
       "type": "number",
       "key": "incidentDurationHours",
       "id": "Field_dur",
-      "defaultValue": 0,
       "validate": {
         "min": 0
       },
@@ -336,7 +329,6 @@
       "type": "number",
       "key": "serviceDowntimeHours",
       "id": "Field_down",
-      "defaultValue": 0,
       "validate": {
         "min": 0
       },
@@ -351,7 +343,6 @@
       "type": "number",
       "key": "affectedEuStatesCount",
       "id": "Field_states",
-      "defaultValue": 1,
       "validate": {
         "min": 1
       },
@@ -361,7 +352,7 @@
       }
     },
     {
-      "text": "**Utrata danych (lit. d)**\nSpełnienie tego progu klasyfikuje incydent bezpośrednio jako poważny.",
+      "text": "**Utrata danych (lit. d)**",
       "type": "text",
       "id": "Text_s2c",
       "layout": {
@@ -425,6 +416,16 @@
       }
     },
     {
+      "label": "Czy wpływ incydentu na dostępność, autentyczność, integralność lub poufność danych ma albo może mieć niekorzystny wpływ na realizację celów biznesowych banku lub jego zdolność do spełniania wymogów regulacyjnych?",
+      "type": "checkbox",
+      "layout": {
+        "row": "Row_11gddv1",
+        "columns": null
+      },
+      "id": "Field_10igvts",
+      "key": "dataLossAdverseImpact"
+    },
+    {
       "text": "**Skutki gospodarcze (lit. f)**",
       "type": "text",
       "id": "Text_s2d",
@@ -438,7 +439,6 @@
       "type": "number",
       "key": "directCostsEur",
       "id": "Field_cDir",
-      "defaultValue": 0,
       "validate": {
         "min": 0
       },
@@ -452,7 +452,6 @@
       "type": "number",
       "key": "indirectCostsEur",
       "id": "Field_cInd",
-      "defaultValue": 0,
       "validate": {
         "min": 0
       },
@@ -466,7 +465,6 @@
       "type": "number",
       "key": "lossesEur",
       "id": "Field_cLoss",
-      "defaultValue": 0,
       "validate": {
         "min": 0
       },
@@ -483,8 +481,7 @@
         "columns": null
       },
       "id": "Field_0p2kzgb",
-      "key": "probableCosts",
-      "defaultValue": 0
+      "key": "probableCosts"
     },
     {
       "label": "Zarejestruj incydent",
@@ -503,7 +500,7 @@
   "executionPlatformVersion": "8.10.0",
   "exporter": {
     "name": "Camunda Modeler",
-    "version": "5.51.1"
+    "version": "5.52.0"
   },
   "schemaVersion": 19
 }
