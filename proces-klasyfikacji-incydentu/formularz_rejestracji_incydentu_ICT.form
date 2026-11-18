@@ -435,22 +435,9 @@
       }
     },
     {
-      "label": "Koszty bezpośrednie (EUR)",
+      "label": "Koszty i straty (EUR)",
       "type": "number",
-      "key": "directCostsEur",
-      "id": "Field_cDir",
-      "validate": {
-        "min": 0
-      },
-      "layout": {
-        "row": "Row_22",
-        "columns": null
-      }
-    },
-    {
-      "label": "Koszty pośrednie (EUR)",
-      "type": "number",
-      "key": "indirectCostsEur",
+      "key": "costs",
       "id": "Field_cInd",
       "validate": {
         "min": 0
@@ -458,19 +445,6 @@
       "layout": {
         "row": "Row_22",
         "columns": null
-      }
-    },
-    {
-      "label": "Straty: rzeczywiste i utracone korzyści (EUR)",
-      "type": "number",
-      "key": "lossesEur",
-      "id": "Field_cLoss",
-      "validate": {
-        "min": 0
-      },
-      "layout": {
-        "row": "Row_22",
-        "columns": 4
       }
     },
     {

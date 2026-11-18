@@ -18,8 +18,7 @@
   "authenticityLost": false,
   "integrityLost": true,
   "confidentialityLost": false,
-  "directCostsEur": 180000,
-  "indirectCostsEur": 95000,
-  "lossesEur": 310000,
+  "probableCosts": 400000,
+  "costs": 310000,
   "approver": "Maria Wiśniewska"
 }

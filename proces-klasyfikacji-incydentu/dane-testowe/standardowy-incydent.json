@@ -18,8 +18,8 @@
   "authenticityLost": false,
   "integrityLost": false,
   "confidentialityLost": false,
-  "directCostsEur": 0,
-  "indirectCostsEur": 0,
+  "costs":0,
+  "probableCosts":0,
   "lossesEur": 0,
   "approver": "Jan Nowak",
   "decision": "standardowy"
