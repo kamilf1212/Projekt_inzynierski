@@ -1,0 +1,154 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage[a4paper, top=2.2cm, bottom=2.2cm, left=2cm, right=2cm]{geometry}
+\usepackage{fontspec}
+\usepackage[english, polish, bidi=basic, provide=*]{babel}
+\babelprovide[import, onchar=ids fonts]{polish}
+\babelfont{rm}{Noto Sans}
+\usepackage{array, tabularx, booktabs, colortbl, xcolor, fancyhdr, lastpage, xltabular}
+
+% ---------- Paleta (skala szarości) ----------
+\definecolor{gDark}{gray}{0.22}
+\definecolor{gMid}{gray}{0.55}
+\definecolor{gHead}{gray}{0.80}
+\definecolor{gLight}{gray}{0.92}
+
+\setlength{\parindent}{0pt}
+\setlength{\emergencystretch}{3em}
+\renewcommand{\arraystretch}{1.35}
+\arrayrulecolor{gMid}\setlength{\arrayrulewidth}{0.5pt}
+
+% ---------- Nagłówek i stopka ----------
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{gMid}\leaders\hrule height 0.4pt\hfill}}
+\renewcommand{\footrule}{\hbox to\headwidth{\color{gMid}\leaders\hrule height 0.4pt\hfill}}
+\fancyhead[L]{\footnotesize\color{gDark} Bank Komercyjny S.A.}
+\fancyhead[R]{\footnotesize\color{gDark} Dokument przekazywany do Organu Nadzorczego}
+\fancyfoot[L]{\footnotesize\color{gDark} Kod referencyjny incydentu: DORA-INC-2026-004921-01}
+\fancyfoot[R]{\footnotesize\color{gDark} Strona \thepage{} z \pageref{LastPage}}
+
+% ---------- Makra formularza ----------
+\newcommand{\sekcja}[1]{\par\vspace{9pt}\noindent\colorbox{gDark}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\color{white}\bfseries\small #1}}\par\nopagebreak\vspace{1pt}}
+
+\newenvironment{pola}
+  {\xltabular{\textwidth}{|>{\columncolor{gLight}[\dimexpr\tabcolsep-0.4pt\relax][\dimexpr\tabcolsep-0.4pt\relax]\raggedright\arraybackslash\bfseries\small}p{6.2cm}|>{\raggedright\arraybackslash}X|}\hline\endhead}
+  {\endxltabular\par}
+\newcommand{\pole}[2]{#1 & #2 \\ \hline}
+\newcommand{\podpis}[4]{\begin{minipage}[t]{0.47\textwidth}\raggedright\small\textbf{#1}\\[28pt]\rule{\linewidth}{0.4pt}\\[2pt]#2\par #3\par {\footnotesize #4}\end{minipage}}
+
+\begin{document}
+
+\begin{center}
+    {\Large\bfseries SPRAWOZDANIE KOŃCOWE Z POWAŻNEGO INCYDENTU ZWIĄZANEGO Z ICT}\\[4pt]
+    {\small Przekazywane do Organu Nadzorczego (KNF) na podstawie art. 19 ust. 4 lit. c Rozporządzenia (UE) 2022/2554 (DORA)}\\[1pt]
+    {\footnotesize Treść i terminy: Rozporządzenie delegowane (UE) 2025/301; wzory formularzy: Rozporządzenie wykonawcze (UE) 2025/302 (Załącznik I)}
+\end{center}
+\vspace{-4pt}\noindent\rule{\textwidth}{0.8pt}
+
+% ============================================================
+\sekcja{Ogólne informacje o podmiocie finansowym}
+\begin{pola}
+\pole{1.1 Rodzaj zgłoszenia}{Sprawozdanie końcowe}
+\pole{1.2 Nazwa podmiotu przedkładającego sprawozdanie}{Bank Komercyjny S.A.}
+\pole{1.3 Kod identyfikacyjny podmiotu przedkładającego sprawozdanie}{004921}
+\pole{1.4 Rodzaj podmiotu finansowego, którego dotyczy incydent}{Instytucja kredytowa}
+\pole{1.5 Nazwa podmiotu finansowego, którego dotyczy incydent}{Bank Komercyjny S.A.}
+\pole{1.6 Kod LEI podmiotu finansowego, którego dotyczy incydent}{2594000000BANKKOM049}
+\pole{1.7 Imię i nazwisko głównej osoby wyznaczonej do kontaktów}{Marek Nowak}
+\pole{1.8 Adres e-mail głównej osoby wyznaczonej do kontaktów}{soc@bank-komercyjny.example}
+\pole{1.9 Numer telefonu głównej osoby wyznaczonej do kontaktów}{+48 22 000 11 22}
+\pole{1.10 Imię i nazwisko dodatkowej osoby wyznaczonej do kontaktów}{Piotr Wiśniewski}
+\pole{1.11 Adres e-mail dodatkowej osoby wyznaczonej do kontaktów}{}
+\pole{1.12 Numer telefonu dodatkowej osoby wyznaczonej do kontaktów}{}
+\pole{1.13 Nazwa jednostki dominującej najwyższego szczebla}{}
+\pole{1.14 Kod LEI jednostki dominującej najwyższego szczebla}{}
+\pole{1.15 Waluta sprawozdawcza}{EUR}
+\end{pola}
+
+% ============================================================
+
+\sekcja{Zawartość wstępnego powiadomienia}
+\begin{pola}
+\pole{2.1 Kod referencyjny incydentu nadany przez podmiot finansowy}{DORA-INC-2026-004921-01}
+\pole{2.2 Data i godzina wykrycia poważnego incydentu związanego z ICT}{2026-11-09 14:30 UTC}
+\pole{2.3 Data i godzina sklasyfikowania incydentu związanego z ICT jako poważny}{2026-11-09 15:15 UTC}
+\pole{2.4 Opis poważnego incydentu związanego z ICT}{Awaria środowiska produkcyjnego usługi autoryzacji transakcji kartowych (niedostępność usługi wspierającej funkcję krytyczną lub ważną). Skutek operacyjny: niemożność realizacji płatności bezgotówkowych w punktach handlowo-usługowych oraz transakcji internetowych (e-commerce).}
+\pole{2.5 Kryteria klasyfikacji, które doprowadziły do zgłoszenia incydentu}{Usługi krytyczne (art. 6); Klienci, kontrahenci finansowi i transakcje (art. 9 ust. 1); Wpływ reputacyjny (art. 9 ust. 2); Czas trwania i przestój usługi (art. 9 ust. 3); Wpływ ekonomiczny (art. 9 ust. 6)}
+\pole{2.6 Progi istotności dla kryterium klasyfikacji „Zasięg geograficzny”}{Niespełnione -- wpływ ograniczony wyłącznie do terytorium Rzeczypospolitej Polskiej (PL); brak wpływu transgranicznego}
+\pole{2.7 Wykrycie poważnego incydentu związanego z ICT}{Monitoring techniczny (alert zespołu SOC)}
+\pole{2.8 Wskazanie, czy poważny incydent związany z ICT wywodzi się od dostawcy będącego osobą trzecią lub innego podmiotu finansowego}{Nie stwierdzono na obecnym etapie; dostawca oprogramowania systemowego został zawiadomiony}
+\pole{2.9 Uruchomienie planu ciągłości działania, jeżeli plan został uruchomiony}{Tak -- uruchomiono procedurę Ciągłości Działania (BCP): przełączenie ruchu autoryzacyjnego na węzeł zapasowy}
+\pole{2.10 Inne istotne informacje}{Brak przesłanek wskazujących na naruszenie poufności lub integralności danych. Data i czas przekazania powiadomienia: 2026-11-09 17:30 UTC (zachowano termin 4 h od klasyfikacji oraz 24 h od wykrycia).}
+\end{pola}
+
+% ============================================================
+\sekcja{Zawartość sprawozdania śródokresowego}
+\begin{pola}
+\pole{3.1 Kod referencyjny incydentu podany przez właściwy organ}{}
+\pole{3.2 Data i godzina wystąpienia poważnego incydentu związanego z ICT}{}
+\pole{3.3 Data i godzina przywrócenia usług, działań lub operacji}{2026-11-09 17:00 UTC}
+\pole{3.4 Liczba klientów, których dotyczy incydent}{142\,850}
+\pole{3.5 Odsetek klientów, których dotyczy incydent}{11,9\,\%}
+\pole{3.6 Liczba kontrahentów finansowych, których dotyczy incydent}{120}
+\pole{3.7 Odsetek kontrahentów finansowych, których dotyczy incydent}{2,4\,\%}
+\pole{3.8 Skutki dla odpowiednich klientów lub kontrahentów finansowych}{Niemożność realizacji płatności bezgotówkowych w punktach handlowo-usługowych oraz transakcji internetowych (e-commerce) w czasie trwania przerwy.}
+\pole{3.9 Liczba transakcji, których dotyczy incydent}{58\,120}
+\pole{3.10 Odsetek transakcji, których dotyczy incydent}{11,6\,\%}
+\pole{3.11 Wartość transakcji, których dotyczy incydent}{3\,045\,000 EUR}
+\pole{3.12 Informacja, czy dane liczbowe są rzeczywiste czy szacunkowe, lub czy nie wystąpiły jakiekolwiek skutki}{Dane rzeczywiste (zweryfikowane względem szacunków wstępnych z powiadomienia wstępnego)}
+\pole{3.13 Skutki reputacyjne}{Tak -- spełnione kryterium z art. 9 ust. 2}
+\pole{3.14 Informacje kontekstowe na temat skutków reputacyjnych}{Powtarzające się skargi klientów (420 zgłoszeń obsłużonych na infolinii); odnotowano również zapytania mediów. Brak wniosków o odszkodowania.}
+\pole{3.15 Czas trwania poważnego incydentu związanego z ICT}{}
+\pole{3.16 Przerwa w świadczeniu usług}{2 h 30 min (od 2026-11-09 14:30 UTC do 2026-11-09 17:00 UTC)}
+\pole{3.17 Informacja, czy dane liczbowe dotyczące czasu trwania incydentu i przerwy w świadczeniu usług są rzeczywiste czy szacunkowe}{Dane rzeczywiste}
+\pole{3.18 Rodzaje skutków w państwach członkowskich}{Kryterium niespełnione -- wpływ ograniczony wyłącznie do terytorium Rzeczypospolitej Polskiej (PL)}
+\pole{3.19 Opis skutków poważnego incydentu związanego z ICT w innych państwach członkowskich}{}
+\pole{3.20 Progi istotności dla kryterium klasyfikacji „Utrata danych”}{Niespełnione -- brak nieuprawnionego dostępu lub utraty danych zagrażającej celom biznesowym albo wymogom regulacyjnym}
+\pole{3.21 Opis utraty danych}{}
+\pole{3.22 Kryterium klasyfikacji „Usługi krytyczne, których dotyczy incydent”}{Spełnione -- autoryzacja i realizacja płatności kartowych wspiera funkcję krytyczną lub ważną}
+\pole{3.23 Rodzaj poważnego incydentu związanego z ICT}{Awaria środowiska produkcyjnego (błąd oprogramowania -- memory leak)}
+\pole{3.24 Inne rodzaje incydentów}{}
+\pole{3.25 Zagrożenia i techniki stosowane przez agresora}{}
+\pole{3.26 Inne rodzaje technik}{}
+\pole{3.27 Informacje na temat obszarów funkcjonalnych i procesów biznesowych, których dotyczy incydent}{Autoryzacja i realizacja płatności kartowych (obsługa transakcji w punktach POS oraz e-commerce)}
+\pole{3.28 Elementy infrastruktury wspierające procesy biznesowe, których to elementów dotyczy incydent}{Moduł autoryzacyjny (węzły produkcyjne)}
+\pole{3.29 Informacje na temat elementów infrastruktury wspierających procesy biznesowe, których to elementów dotyczy incydent}{Błąd wycieku pamięci (memory leak) w module autoryzacyjnym po wdrożeniu poprawki eksploatacyjnej v2.4.1}
+\pole{3.30 Wpływ na interesy finansowe klientów}{}
+\pole{3.31 Składanie sprawozdań innym organom}{}
+\pole{3.32 Określenie „innych” organów}{}
+\pole{3.33 Tymczasowe działania/środki podjęte lub planowane w celu przywrócenia sytuacji sprzed incydentu}{Podjęte}
+\pole{3.34 Opis wszelkich tymczasowych działań i środków podjętych lub planowanych w celu przywrócenia sytuacji sprzed incydentu}{Przełączono ruch na węzeł zapasowy BCP, a następnie wycofano wersję v2.4.1 i przywrócono stabilną wersję oprogramowania v2.4.0 na wszystkich węzłach produkcyjnych. Zawiadomiono dostawcę oprogramowania systemowego (weryfikacja błędów pamięci w toku).}
+\pole{3.35 Oznaki naruszenia integralności systemu}{Nie stwierdzono}
+\end{pola}
+
+% ============================================================
+\sekcja{Zawartość sprawozdania końcowego}
+\begin{pola}
+\pole{4.1 Ogólna klasyfikacja przyczyn źródłowych incydentu}{Błąd procesu wewnętrznego}
+\pole{4.2 Szczegółowa klasyfikacja przyczyn źródłowych incydentu}{Zarządzanie zmianą i testowanie wydań}
+\pole{4.3 Dodatkowa klasyfikacja przyczyn źródłowych incydentu}{}
+\pole{4.4 Inne rodzaje przyczyn źródłowych}{}
+\pole{4.5 Informacje na temat przyczyn źródłowych incydentu}{Wyciek pamięci w module autoryzacyjnym (po wdrożeniu poprawki v2.4.1) wynikał z braku testów obciążeniowych skryptów czyszczących bufor pamięci w środowisku przedprodukcyjnym (Pre-Prod) przed wdrożeniem produkcyjnym. Czynnik zwiększający skutki: uchybienie w automatycznym mechanizmie failover, które opóźniło przełączenie ruchu o 20 minut. Przyczyna leży w procesach wewnętrznych Banku (brak pochodzenia od zewnętrznego dostawcy ICT).}
+\pole{4.6 Streszczenie dotyczące zaradzenia incydentowi}{Wycofano wersję v2.4.1 i przywrócono stabilną wersję v2.4.0. Wdrożono obowiązkowe testy obciążeniowe dla wydań oprogramowania autoryzacyjnego w środowisku Pre-Prod, zmieniono konfigurację klastra HA (skrócenie czasu automatycznego failover do poniżej 3 minut) oraz zaplanowano aktualizację scenariuszy BCP/DRP i ćwiczenia Tabletop (termin: 2026-12-15).}
+\pole{4.7 Data i godzina usunięcia przyczyny źródłowej incydentu}{}
+\pole{4.8 Data i godzina zaradzenia incydentowi}{}
+\pole{4.9 Informacja, czy data trwałego zaradzenia incydentowi różni się od pierwotnie planowanej daty wdrożenia}{}
+\pole{4.10 Ocena ryzyka dla funkcji krytycznych do celów restrukturyzacji i uporządkowanej likwidacji}{}
+\pole{4.11 Informacje istotne dla organów ds. restrukturyzacji i uporządkowanej likwidacji}{}
+\pole{4.12 Próg istotności dla kryterium klasyfikacji „Skutki gospodarcze”}{Spełnione -- przekroczenie progu 100\,000 EUR kosztów i strat brutto (art. 9 ust. 6)}
+\pole{4.13 Kwota bezpośrednich i pośrednich kosztów i strat brutto}{210\,000 EUR (koszty bezpośrednie: 85\,000 EUR; koszty pośrednie i utracone korzyści: 125\,000 EUR)}
+\pole{4.14 Kwota odzyskanych środków finansowych}{}
+\pole{4.15 Informacja, czy incydenty inne niż poważne powtarzały się}{}
+\pole{4.16 Data i godzina wystąpienia powtarzających się incydentów}{}
+\end{pola}
+
+% ============================================================
+\sekcja{Osoby odpowiedzialne}
+\begin{minipage}{\textwidth}
+\vspace{4pt}
+\podpis{Szef Zespołu RCA}{Tomasz Zieliński}{Head of IT Quality}{}
+\hfill
+\podpis{Osoba Upoważniona (CISO)}{Jan Kowalski}{Dokument podpisany kwalifikowanym podpisem elektronicznym}{}
+\end{minipage}
+
+\end{document}
