@@ -19,7 +19,7 @@
       }
     },
     {
-      "text": "### Dane incydentu\n**Dotknięta usługa:** {{affectedService}}\n\n**Źródło wykrycia:** {{detectionSource}}\n\n**Opis zdarzenia:** {{incidentDescription}}",
+      "text": "### Dane incydentu\n**Dotknięta usługa:** {{affectedService}}\n\n**Źródło wykrycia:** {{detectionSource}}\n\n**Opis zdarzenia:** {{incidentDescription}}\n",
       "type": "text",
       "id": "Text_dane",
       "layout": {
@@ -71,6 +71,16 @@
         "row": "Row_5",
         "columns": null
       }
+    },
+    {
+      "label": "Uzasadnienie (jeśli klasyfikacja różni się od klasyfikacji systemu)",
+      "type": "textarea",
+      "layout": {
+        "row": "Row_0fz43k4",
+        "columns": null
+      },
+      "id": "Field_0vw43g5",
+      "key": "textarea_2pegm"
     },
     {
       "label": "Zatwierdź klasyfikację",

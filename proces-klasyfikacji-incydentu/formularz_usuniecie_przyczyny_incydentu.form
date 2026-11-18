@@ -10,6 +10,16 @@
       "id": "Field_0jgw4sh"
     },
     {
+      "label": "Imię i nazwisko osoby odpowiedzialnej za usunięcie incydentu",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0kyfnkh",
+        "columns": null
+      },
+      "id": "Field_0z6zh55",
+      "key": "textfield_89mfr4"
+    },
+    {
       "label": "Select",
       "values": [
         {
@@ -27,8 +37,42 @@
         "columns": null
       },
       "id": "Field_1f3cebn",
-      "key": "isIncidentCauseRemoved",
-      "defaultValue": "true"
+      "key": "isIncidentCauseRemoved"
+    },
+    {
+      "subtype": "datetime",
+      "dateLabel": "Data usunięcia",
+      "timeLabel": "Godzina usunięcia",
+      "timeSerializingFormat": "utc_offset",
+      "timeInterval": 1,
+      "use24h": true,
+      "type": "datetime",
+      "layout": {
+        "row": "Row_1remdat0",
+        "columns": null
+      },
+      "id": "Field_1remdat0",
+      "key": "removedAt"
+    },
+    {
+      "label": "Działania naprawcze",
+      "type": "textarea",
+      "layout": {
+        "row": "Row_1corrct0",
+        "columns": null
+      },
+      "id": "Field_1corrct0",
+      "key": "correctiveActions"
+    },
+    {
+      "label": "Dowody usunięcia incydentu",
+      "type": "filepicker",
+      "layout": {
+        "row": "Row_1evidnc0",
+        "columns": null
+      },
+      "id": "Field_1rcdjdg",
+      "key": "filepicker_bzhd9j"
     },
     {
       "label": "Zatwierdź",

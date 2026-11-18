@@ -17,7 +17,7 @@
         "columns": null
       },
       "id": "Field_0zzuqz6",
-      "key": "textfield_ep2br8"
+      "key": "raportApprover"
     },
     {
       "label": "Decyzja o zatwierdzeniu raportu",
@@ -28,7 +28,7 @@
         },
         {
           "label": "Dokument odrzucony",
-          "value": "declined"
+          "value": "rejected"
         }
       ],
       "type": "select",

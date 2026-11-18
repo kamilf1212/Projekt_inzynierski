@@ -20,5 +20,9 @@
   "confidentialityLost": false,
   "probableCosts": 400000,
   "costs": 310000,
-  "approver": "Maria Wiśniewska"
+  "approver": "Maria Wiśniewska",
+  "raportApprover": "Piotr Zieliński",
+  "isIncidentCauseRemoved": "true",
+  "removedAt": "2026-11-06T16:00:00+01:00",
+  "correctiveActions": "Przełączenie ruchu sieciowego na zapasowy region chmurowy, weryfikacja spójności bazy danych oraz przywrócenie pełnej przepustowości bramek płatniczych."
 }

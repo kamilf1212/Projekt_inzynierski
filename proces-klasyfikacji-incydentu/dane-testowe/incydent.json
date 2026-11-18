@@ -18,9 +18,13 @@
   "authenticityLost": false,
   "integrityLost": false,
   "confidentialityLost": false,
-  "costs":0,
-  "probableCosts":0,
+  "costs": 0,
+  "probableCosts": 0,
   "lossesEur": 0,
   "approver": "Jan Nowak",
-  "decision": "standardowy"
+  "decision": "standardowy",
+  "raportApprover": "Anna Kowalska",
+  "isIncidentCauseRemoved": "true",
+  "removedAt": "2026-11-06T15:45:00+01:00",
+  "correctiveActions": "Wykonano restart kontenera usługi raportującej oraz wyczyszczono pamięć podręczną zapytań."
 }
